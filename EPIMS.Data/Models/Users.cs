@@ -20,6 +20,7 @@ namespace EPIMS.Data.Models
         public string Email { get; set; }
         public string Address { get; set; }
         public bool? IsActive { get; set; }
+        public string Password { get; set; }
 
         public virtual Userrole UserRole { get; set; }
         public virtual ICollection<WorkDetails> WorkDetails { get; set; }

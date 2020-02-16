@@ -69,6 +69,10 @@ namespace EPIMS.Data.Models
 
             modelBuilder.Entity<Users>(entity =>
             {
+                entity.HasIndex(e => e.Email)
+                    .HasName("UQ__Users__A9D10534CCD29793")
+                    .IsUnique();
+
                 entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.Address).HasMaxLength(500);
@@ -84,6 +88,11 @@ namespace EPIMS.Data.Models
                 entity.Property(e => e.LastName).HasMaxLength(200);
 
                 entity.Property(e => e.MiddleName).HasMaxLength(200);
+
+                entity.Property(e => e.Password)
+                    .HasColumnName("password")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
 
                 entity.HasOne(d => d.UserRole)
                     .WithMany(p => p.Users)
