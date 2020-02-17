@@ -74,7 +74,7 @@ namespace EPIMS
             //});
 
             app.UseCors(options =>
-            options.WithOrigins("http://localhost:44365", "http://localhost:4200", "http://localhost:8100")
+            options.AllowAnyOrigin()
             .AllowAnyMethod()
             .AllowAnyHeader());
 

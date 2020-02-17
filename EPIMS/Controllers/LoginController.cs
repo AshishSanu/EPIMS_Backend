@@ -20,12 +20,12 @@ namespace EPIMS.Controllers
             _context = context;
         }
 
-        // GET: api/Login?username=username&password=password
+        // GET: api/Login?email=email&password=password
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Users>>> Login(String username, String password)
+        public async Task<ActionResult<IEnumerable<Users>>> Login(String email, String password)
         {
             var users = await _context.Users.ToListAsync();
-            var res = users.Find(x => x.Email == username && x.Password == password);
+            var res = users.Find(x => x.Email == email && x.Password == password);
             return Ok(res);
         }
     }
